@@ -162,3 +162,13 @@ sec3 = collage[:, 2*w:3*w]
 ```
 3. Por ultimo, dentro ya del bucle ret, utilizaremos las secciones creadas anteriormente para alterar sus canales, haciendo uno normal, otro parcialmente negativo y un ultimo totalmente negativo
 
+ ```python
+ frame = cv2.resize(frameIN, (w, h), cv2.INTER_NEAREST)
+
+ sec1[:, :, :] = frame
+ sec2[:, :, :] = frame - (255 - frame) //3
+ sec3[:, :, :] = 255 - frame
+
+ cv2.imshow('Pop Art - Negativo Progresivo', collage)
+```
+
